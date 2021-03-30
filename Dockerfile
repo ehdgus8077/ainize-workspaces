@@ -11,9 +11,6 @@ RUN pip install flask
 RUN pip install flask_cors
 
 ENV PASSWORD=''
-# ainblockchain/workspace:openchat.dev
-FROM ainblockchain/workspace:ubuntu18.04.cuda11-torch1.7
-
 
 # install VS Code
 RUN curl -fsSL https://code-server.dev/install.sh | sh
