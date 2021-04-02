@@ -10,8 +10,15 @@ RUN pip install flask
 RUN pip install flask_cors
 RUN pip install openchat==1.0
 
+WORKDIR /
+RUN wget https://github.com/tsl0922/ttyd/archive/refs/tags/1.6.2.zip
+RUN cd ttyd-1.6.2 && mkdir build && cd build
+RUN cmake ..
+RUN make && sudo make install
+
 COPY start.sh /scripts/start.sh
 RUN ["chmod", "+x", "/scripts/start.sh"]
 
+WORKDIR /workspace
 ENV PASSWORD=''
 ENTRYPOINT "/scripts/start.sh"
