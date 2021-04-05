@@ -12,10 +12,8 @@ RUN pip install openchat==1.0
 
 WORKDIR /
 RUN wget https://github.com/tsl0922/ttyd/archive/refs/tags/1.6.2.zip
-RUN cd ttyd-1.6.2 && mkdir build && cd build
-RUN cmake ..
-RUN make && sudo make install
-
+RUN unzip 1.6.2.zip
+RUN cd ttyd-1.6.2 && mkdir build && cd build && cmake .. && make && sudo make install
 COPY start.sh /scripts/start.sh
 RUN ["chmod", "+x", "/scripts/start.sh"]
 
