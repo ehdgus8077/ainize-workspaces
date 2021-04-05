@@ -1,4 +1,4 @@
-# ainblockchain/workspace:openchat.dev
+# openchat
 FROM ainblockchain/workspace:ubuntu18.04.cuda11-torch1.7
 
 # install VS Code
