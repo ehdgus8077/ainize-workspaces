@@ -17,6 +17,14 @@ RUN cd ttyd-1.6.2 && mkdir build && cd build && cmake .. && make && sudo make in
 COPY start.sh /scripts/start.sh
 RUN ["chmod", "+x", "/scripts/start.sh"]
 
+COPY jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
+COPY tree.html /opt/conda/lib/python3.7/site-packages/notebook/templates/tree.html
+COPY notebook.html /opt/conda/lib/python3.7/site-packages/notebook/templates/notebook.html
+COPY notebooklist.js /opt/conda/lib/python3.7/site-packages/notebook/static/tree/js/notebooklist.js
+COPY savewidget.js /opt/conda/lib/python3.7/site-packages/notebook/static/notebook/js/savewidget.js
+COPY edit.js /opt/conda/lib/python3.7/site-packages/notebook/static/edit/js/savewidget.js
+COPY actions.js /opt/conda/lib/python3.7/site-packages/notebook/static/notebook/js/actions.js
+
 WORKDIR /workspace
 ENV PASSWORD=''
 ENTRYPOINT "/scripts/start.sh"

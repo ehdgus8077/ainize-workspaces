@@ -8,6 +8,7 @@ then
   git config --global user.email "$USER_EMAIL"
   git config --global user.name "$USER_NAME"
 fi
+chmod -R 555 /workspace
 
 jupyter notebook  --NotebookApp.token=$PASSWORD --ip=0.0.0.0 --port=8000 --allow-root &
 
