@@ -22,6 +22,7 @@ RUN ["chmod", "+x", "/scripts/start.sh"]
 COPY jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
 COPY login.html /opt/conda/lib/python3.7/site-packages/notebook/templates/login.html
 
+ENV PORT 8010
 
 WORKDIR /workspace
 ENV PASSWORD=''
